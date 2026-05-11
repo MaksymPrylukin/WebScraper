@@ -18,7 +18,7 @@ path_to_driver = "D:\\chromedriver-win64\\chromedriver.exe"
 service = Service(path_to_driver)
 driver = webdriver.Chrome(service=service)
 driver.get(url)
-time.sleep.(2)
+time.sleep(2)
 driver.find_element(by='xpath', value='//*[@id="js_cookie-consent-general"]/div/div[2]/button[1]').click()
 all_opinions = []
 while next:
@@ -50,8 +50,8 @@ while next:
                 'cons': [c.get_text() for c in opinion.select('div.review-feature__item--negative')],
                 'like': opinion.select_one('button.vote-yes > span').get_text().strip(),
                 'dislike': opinion.select_one('button.vote-no > span').get_text().strip(),
-                'publish_date': opinion.select_one('span.user-post__published > time:nth-child(1)[datetime]').['datetime'].strip(),
-                'purchase_date': opinion.select_one('span.user-post__published > time:nth-child(2)[datetime]').['datetime'].strip() if opinion.select_one('span.user-post__published > time:nth-child(2)[datetime]') else None,
+                'publish_date': opinion.select_one('span.user-post__published > time:nth-child(1)[datetime]')['datetime'].strip(),
+                'purchase_date': opinion.select_one('span.user-post__published > time:nth-child(2)[datetime]')['datetime'].strip() if opinion.select_one('span.user-post__published > time:nth-child(2)[datetime]') else None,
             }
             all_opinions.append(single_opinion)
 
